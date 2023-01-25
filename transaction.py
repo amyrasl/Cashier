@@ -5,8 +5,6 @@ class Transaction:
   """Class dengan nama Transaction"""
 
   item_dict = {'Name':[],'Price':[],'Quantity':[],'Total':[]}
-  #item_dict = {'Name': ['Nasgor','Mangga', 'Cumi', 'Bayam','Kangkung','Lemper'], 'Price': [15000, 9000, 25000, 7000, 5000, 2000], 'Quantity': [1, 1, 1, 1, 3, 1], 'Total': [15000, 9000, 25000, 7000, 15000, 2000]}
-
 
   def __init__(self):
     """
