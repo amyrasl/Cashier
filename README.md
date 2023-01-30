@@ -369,15 +369,19 @@ Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu
 
 ##Test Case
 1. Test Case1: Penambahan barang
+
 ![image](https://user-images.githubusercontent.com/65806232/215543723-70d1e12d-61ee-4e74-8ccf-e27a2ae23a4a.png)
 
 2. Test Case2: Delete item
+
 ![image](https://user-images.githubusercontent.com/65806232/215545629-71bd382d-7697-4857-a0e2-f7d72ecc8af1.png)
 
 3. Test Case3: Reset item
+
 ![image](https://user-images.githubusercontent.com/65806232/215546239-5e7bf95b-917d-4347-b108-4bd6031bc0cf.png)
 
 4. Test Case4: Total item
+
 ![image](https://user-images.githubusercontent.com/65806232/215546857-4e27ad0e-af9e-46b8-ab9f-c8e35823e536.png)
 
 ## Conclusion
