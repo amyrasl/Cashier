@@ -13,19 +13,31 @@ Super Cashier merupakan sistem kasir yang mampu membuat user memesan barang seca
  - Menampilkan harga total barang dengan diskon
 
 ## Workflow
+
+### Input Transaction ID
+1. User diminta untuk memasukkan ID dalam bentuk integer, jika bukan, maka sistem akan menampilkan 'Format harus dalam bentuk angka!'
+
+![image](https://user-images.githubusercontent.com/65806232/215547825-abef9e31-6e63-41e7-995c-79bb2ec7250c.png)
+
+### Memilih Menu
+1. User diminta untuk memilih opsi mana yang diinginkan dalam mengatur keranjang belanjanya. User dapat keluar menu dengan mengetikkan angka '6', jika user tidak memasukkan angka menu, maka menu akan terus muncul
+
+![image](https://user-images.githubusercontent.com/65806232/215548006-9d31f352-b6c9-4081-9b70-27de3f3d1ae6.png)
+
+
  ### Add Item
- 1. User diminta untuk memasukkan nama barang
- 2. User diminta untuk memasukkan harga barang
- 3. User diminta untuk memasukkan jumlah barang
- 4. User akan ditanya apakah ingin mengakhiri penambahan barang, jika iya maka ketikkan 'y' dan 'n' jika tidak
- 5. Akan ditampilkan kalimat 'Barang berhasil dimasukkan ke dalam keranjang
+ 1. User diminta untuk memasukkan nama, harga, dan jumlah barang
+ 2. User akan ditanya apakah ingin mengakhiri penambahan barang, jika iya maka ketikkan 'y' dan 'n' jika tidak
+ 3. Akan ditampilkan kalimat 'Barang berhasil dimasukkan ke dalam keranjang
+
+![image](https://user-images.githubusercontent.com/65806232/215548411-1ea7d11a-9422-4372-86e1-068352afcea0.png)
+
 
  ### Update Item
  1. User diminta untuk memasukkan nama barang yang ingin diubah
  2. User akan ditanya apakah ingin mengubah nama, harga, atau jumlah barang
- 3. Jika user ingin mengubah nama barang sesuai dengan input nama barang yang ingin diubah, maka user akan diminta memasukkan nama barang yang baru
- 4. Jika user ingin mengubah harga barang sesuai dengan input nama barang yang ingin diubah, maka user akan diminta memasukkan harga barang yang baru
- 5. Jika user ingin mengubah jumlah barang sesuai dengan input nama barang yang ingin diubah, maka user akan diminta memasukkan jumlah barang yang baru
+ 3. User akan diminta memasukkan nama, harga, atau jumlah barang yang baru
+ 
 
  ### Delete Item
  1. User ditanya apakah ingin menghapus satu barang atau ingin me-reset seluruh barang pada keranjang
@@ -204,7 +216,8 @@ Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu
       
       change_name = input('Masukkan nama barang yang baru: ')
       self.item_dict['Name'][idx] = change_name
-      print(f'Nama barang berhasil diubah! {self.item_dict} \n\n')
+      df = pd.DataFrame(self.item_dict)
+      print(f'Nama barang berhasil diubah!\n{tabulate(df,headers="keys",showindex=False)}')
 ```
 
 7. Function update_item_qty
@@ -226,7 +239,8 @@ Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu
           self.item_dict['Quantity'][idx] = change_quantity
           self.item_dict['Total'][idx] = self.item_dict['Quantity'][idx]*self.item_dict['Price'][idx]
           
-          print(f'Jumlah barang berhasil diubah! {self.item_dict} \n\n')
+          df = pd.DataFrame(self.item_dict)
+          print(f'Jumlah barang berhasil diubah!\n{tabulate(df,headers="keys",showindex=False)}')
           break
         except ValueError:
           print("Masukkan dalam bentuk angka!")
@@ -251,7 +265,8 @@ Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu
           self.item_dict['Price'][idx] = change_price
           self.item_dict['Total'][idx] = self.item_dict['Quantity'][idx]*self.item_dict['Price'][idx]
           
-          print(f'Harga barang berhasil diubah! {self.item_dict} \n\n')
+          df = pd.DataFrame(self.item_dict)
+          print(f'Harga barang berhasil diubah!\n{tabulate(df,headers="keys",showindex=False)}')
           break
           
         except ValueError:
