@@ -5,7 +5,7 @@ Super Cashier merupakan sistem kasir yang mampu membuat user memesan barang seca
 
 ## Program Objectives
  - Membuat ID Transaksi
- - Menambahkan barang ke dalam keranjang
+ - Menambahkan barang ke dalam keranjang dengan memasukkan nama, jumlah, dan harganya
  - Memperbarui nama, jumlah, dan harga barang di dalam keranjang
  - Menghapus barang di dalam keranjang
  - Reset semua barang dalam keranjang
