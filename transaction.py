@@ -118,7 +118,8 @@ class Transaction:
       
       change_name = input('Masukkan nama barang yang baru: ')
       self.item_dict['Name'][idx] = change_name
-      print(f'Nama barang berhasil diubah! {self.item_dict} \n\n')
+      df = pd.DataFrame(self.item_dict)
+      print(f'Nama barang berhasil diubah!\n{tabulate(df,headers="keys",showindex=False)}')
 
     def update_item_qty(change,idx):
       """
@@ -138,7 +139,8 @@ class Transaction:
           self.item_dict['Quantity'][idx] = change_quantity
           self.item_dict['Total'][idx] = self.item_dict['Quantity'][idx]*self.item_dict['Price'][idx]
           
-          print(f'Jumlah barang berhasil diubah! {self.item_dict} \n\n')
+          df = pd.DataFrame(self.item_dict)
+          print(f'Jumlah barang berhasil diubah!\n{tabulate(df,headers="keys",showindex=False)}')
           break
         except ValueError:
           print("Masukkan dalam bentuk angka!")
@@ -161,7 +163,8 @@ class Transaction:
           self.item_dict['Price'][idx] = change_price
           self.item_dict['Total'][idx] = self.item_dict['Quantity'][idx]*self.item_dict['Price'][idx]
           
-          print(f'Harga barang berhasil diubah! {self.item_dict} \n\n')
+          df = pd.DataFrame(self.item_dict)
+          print(f'Harga barang berhasil diubah!\n{tabulate(df,headers="keys",showindex=False)}')
           break
           
         except ValueError:
