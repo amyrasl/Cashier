@@ -222,8 +222,7 @@ class Transaction:
       """Fungsi untuk menghapus transaksi"""
 
       self.item_dict.clear()
-      df = pd.DataFrame(self.item_dict)
-      print(f'Berhasil dihapus!\n {tabulate(df,headers="keys",showindex=False)}')
+      print('Semua barang berhasil dihapus!')
 
     if (all(map(lambda x: x == [], self.item_dict.values()))):
       print("\nBelum ada barang dalam keranjang!")
