@@ -212,7 +212,8 @@ class Transaction:
           idx = self.item_dict['Name'].index(delete_name)
           for key in list(self.item_dict.keys()):
             del(self.item_dict[key][idx])
-          print(f"Berhasil dihapus! {self.item_dict}")
+          df = pd.DataFrame(self.item_dict)
+          print(f'Berhasil dihapus! {tabulate(df,headers="keys",showindex=False)}')
           break
         except ValueError:
           print("Tidak ada barang dalam keranjang!\n")
@@ -221,7 +222,8 @@ class Transaction:
       """Fungsi untuk menghapus transaksi"""
 
       self.item_dict.clear()
-      print(f"Transaksi berhasil dihapus! {self.item_dict}")
+      df = pd.DataFrame(self.item_dict)
+      print(f'Berhasil dihapus! {tabulate(df,headers="keys",showindex=False)}')
 
     if (all(map(lambda x: x == [], self.item_dict.values()))):
       print("\nBelum ada barang dalam keranjang!")
