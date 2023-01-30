@@ -15,58 +15,9 @@ Super Cashier merupakan sistem kasir yang mampu membuat user memesan barang seca
    - Jika harga lebih dari 300.000 maka mendapatkan diskon 8%
    - Jika harga lebih dari 500.000 maka mendapatkan diskon 10%
 
-## Workflow
+## Flowchart
 
-### Input Transaction ID
-1. User diminta untuk memasukkan ID dalam bentuk integer, jika bukan, maka sistem akan menampilkan 'Format harus dalam bentuk angka!'
-
-![image](https://user-images.githubusercontent.com/65806232/215547825-abef9e31-6e63-41e7-995c-79bb2ec7250c.png)
-
-### Memilih Menu
-1. User diminta untuk memilih opsi mana yang diinginkan dalam mengatur keranjang belanjanya. User dapat keluar menu dengan mengetikkan angka '6', jika user tidak memasukkan angka menu, maka menu akan terus muncul
-
-![image](https://user-images.githubusercontent.com/65806232/215548006-9d31f352-b6c9-4081-9b70-27de3f3d1ae6.png)
-
-
- ### Add Item
- 1. User diminta untuk memasukkan nama, harga, dan jumlah barang
- 2. User akan ditanya apakah ingin mengakhiri penambahan barang, jika iya maka ketikkan 'y' dan 'n' jika tidak
- 3. Akan ditampilkan kalimat 'Barang berhasil dimasukkan ke dalam keranjang
-
-![image](https://user-images.githubusercontent.com/65806232/215548411-1ea7d11a-9422-4372-86e1-068352afcea0.png)
-
-
- ### Update Item
- 1. User diminta untuk memasukkan nama barang yang ingin diubah
- 2. Jika nama barang yang dimasukkan tidak ditemukan, sistem akan menampilkan bahwa tidak ada nama tersebut dalam keranjang
- 3. User akan ditanya apakah ingin mengubah nama, harga, atau jumlah barang
- 4. User akan diminta memasukkan nama, harga, atau jumlah barang yang baru
-
-![image](https://user-images.githubusercontent.com/65806232/215550134-e1dda44d-4326-4ac7-9dfb-a6d078117e4a.png)
-
-
- ### Delete Item
- 1. User ditanya apakah ingin menghapus satu barang atau ingin me-reset seluruh barang pada keranjang
- 2. Jika user ingin menghapus satu barang, maka user akan diminta memasukkan nama barang yang ingin dihapus
- 3. Jika user ingin me-reset seluruh barang, maka sistem akan menghapus seluruh transaksi dan menampilkan 'Semua barang berhasil dihapus'
-
-![image](https://user-images.githubusercontent.com/65806232/215550351-30160065-258a-4c06-8ee7-db317c59bd23.png)
-
-![image](https://user-images.githubusercontent.com/65806232/215550425-2be3539b-8200-4060-987f-b9cd6b37bfa0.png)
-
- ### Check Item
- 1. Jika di dalam keranjang sudah diisi dengan benar, maka akan ditampilkan 'Data sudah diisi dengan benar' dan ditampilkan seluruh barang pada keranjang
- 2. Jika tidak ada barang di dalam keranjang, sistem akan menampilkan 'Belum ada barang di dalam keranjang'
-
-![image](https://user-images.githubusercontent.com/65806232/215550544-4c7e65b8-86ab-4b94-ba6a-33c0189ee67d.png)
-
-
- ### Total Price
- 1. Sistem akan mengecek apakah terdapat barang dalam keranjang, jika tidak, sistem akan menampilkan 'Belum ada barang di dalam keranjang'
- 2. Sistem akan menampilkan barang yang telah dibeli dengan total biaya yang sudah dikalkulasikan dengan diskon
-
-![image](https://user-images.githubusercontent.com/65806232/215550656-ddef08b1-18fc-4e2f-80e3-5a5f7932381e.png)
-
+![image](https://user-images.githubusercontent.com/65806232/215563401-7b80a35c-89d7-43e7-91f7-eeb5209e5c82.png)
 
 ## Demonstrasi Code
 ### Script Main.py
@@ -88,7 +39,7 @@ class Transaction:
 ```
 
 ### Constructor init
-Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu akan terus berulang hingga user keluar dari menu dengan menekan angka 6
+User diminta untuk memasukkan ID dalam bentuk integer, jika bukan, maka sistem akan menampilkan 'Format harus dalam bentuk angka!' dan terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu akan terus berulang hingga user keluar dari menu dengan menekan angka 6
 
 ```ruby
   def __init__(self):
@@ -131,6 +82,9 @@ Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu
 ```
 
 ### Function add_item
+ 1. User diminta untuk memasukkan nama, harga, dan jumlah barang
+ 2. User akan ditanya apakah ingin mengakhiri penambahan barang, jika iya maka ketikkan 'y' dan 'n' jika tidak
+ 3. Akan ditampilkan kalimat 'Barang berhasil dimasukkan ke dalam keranjang
 
 ```ruby
   def add_item(self):
@@ -178,6 +132,10 @@ Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu
 ```
 
 ### Function edit_item
+ 1. User diminta untuk memasukkan nama barang yang ingin diubah
+ 2. Jika nama barang yang dimasukkan tidak ditemukan, sistem akan menampilkan bahwa tidak ada nama tersebut dalam keranjang
+ 3. User akan ditanya apakah ingin mengubah nama, harga, atau jumlah barang
+ 4. User akan diminta memasukkan nama, harga, atau jumlah barang yang baru
 Terdapat tiga jenis update dalam edit_item, yaitu update nama, jumlah, dan harga barang. Jika tidak ada barang dalam keranjang maka function akan menampilkan error
 
 ```ruby
@@ -291,6 +249,9 @@ Terdapat tiga jenis update dalam edit_item, yaitu update nama, jumlah, dan harga
 
 9. Function choose_delete
 Function yang dapat membuat user memilih jenis hapus. User dapat menghapus satu barang atau reset semua barang sekaligus. 1 untuk menghapus satu barang dan 2 untuk menghapus semua barang
+ 1. User ditanya apakah ingin menghapus satu barang atau ingin me-reset seluruh barang pada keranjang
+ 2. Jika user ingin menghapus satu barang, maka user akan diminta memasukkan nama barang yang ingin dihapus
+ 3. Jika user ingin me-reset seluruh barang, maka sistem akan menghapus seluruh transaksi dan menampilkan 'Semua barang berhasil dihapus'
 
 ```ruby
   def choose_delete(self):
@@ -351,6 +312,8 @@ Function yang dapat membuat user memilih jenis hapus. User dapat menghapus satu 
 
 12. Function check_item
 User dapat melihat barang yang dibeli, apakah sudah benar atau terdapat error
+ 1. Jika di dalam keranjang sudah diisi dengan benar, maka akan ditampilkan 'Data sudah diisi dengan benar' dan ditampilkan seluruh barang pada keranjang
+ 2. Jika tidak ada barang di dalam keranjang, sistem akan menampilkan 'Belum ada barang di dalam keranjang'
 
 ```ruby
   def check_item(self):
@@ -366,6 +329,8 @@ User dapat melihat barang yang dibeli, apakah sudah benar atau terdapat error
 ```
 
 13. Function total_price
+ 1. Sistem akan mengecek apakah terdapat barang dalam keranjang, jika tidak, sistem akan menampilkan 'Belum ada barang di dalam keranjang'
+ 2. Sistem akan menampilkan barang yang telah dibeli dengan total biaya yang sudah dikalkulasikan dengan diskon
 
 ```ruby
   def total_price(self):
