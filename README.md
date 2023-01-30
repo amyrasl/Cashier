@@ -382,7 +382,7 @@ Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu
 
 4. Test Case4: Total item
 
-![image](https://user-images.githubusercontent.com/65806232/215546857-4e27ad0e-af9e-46b8-ab9f-c8e35823e536.png)
+![image](https://user-images.githubusercontent.com/65806232/215547101-eda2b8e9-3d9a-48d1-a507-82fc180e72b6.png)
 
 ## Conclusion
 Program ini dapat memudahkan user dalam memasukkan barang yang ingin dibeli secara mandiri. Meski begitu, Interface program ini masih bisa dikembangkan lebih lanjut agar user lebih mudah dalam mengoperasikannya.
