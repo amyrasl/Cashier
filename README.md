@@ -46,11 +46,13 @@ Super Cashier merupakan sistem kasir yang mampu membuat user memesan barang seca
 ![image](https://user-images.githubusercontent.com/65806232/215535184-31d8df37-cc42-42d3-bdc4-79fa96c2d248.png)
 
 2. Script Transaction.py
-> Berisikan Class Transaction yang berisikan variabel dictionary sebagai cart
+Berisikan Class Transaction yang berisikan variabel dictionary sebagai cart
+
 ![image](https://user-images.githubusercontent.com/65806232/215535667-2791afc1-0409-46d0-8f71-c4193c57c975.png)
 
 3. Constructor init
-> Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu akan terus berulang hingga user keluar dari menu dengan menekan angka 6
+Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu akan terus berulang hingga user keluar dari menu dengan menekan angka 6
+
 ![image](https://user-images.githubusercontent.com/65806232/215536629-ea13dee0-90fe-47a9-8e1f-003175d9178d.png)
 
 4. Function add_item
