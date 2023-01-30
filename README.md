@@ -397,7 +397,7 @@ User dapat melihat barang yang dibeli, apakah sudah benar atau terdapat error
       print(f"Total biaya yang perlu dibayar adalah Rp.{int(total_harga_diskon)}")
 ```
 
-##Test Case
+## Test Case
 1. Test Case1: Penambahan barang
 
 ![image](https://user-images.githubusercontent.com/65806232/215543723-70d1e12d-61ee-4e74-8ccf-e27a2ae23a4a.png)
