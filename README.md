@@ -66,7 +66,7 @@ Super Cashier merupakan sistem kasir yang mampu membuat user memesan barang seca
 
 
 ## Demonstrasi Code
-1. Script Main.py
+### Script Main.py
 
 ```ruby
 import transaction
@@ -74,7 +74,7 @@ import transaction
 trnsct_123 = transaction.Transaction()
 ```
 
-2. Script Transaction.py
+### Script Transaction.py
 Berisikan Class Transaction yang berisikan variabel dictionary sebagai cart
 
 ```ruby
@@ -84,7 +84,7 @@ class Transaction:
   item_dict = {'Name':[],'Price':[],'Quantity':[],'Total':[]}
 ```
 
-3. Constructor init
+### Constructor init
 Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu akan terus berulang hingga user keluar dari menu dengan menekan angka 6
 
 ```ruby
@@ -127,7 +127,7 @@ Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu
         self.total_price()
 ```
 
-4. Function add_item
+### Function add_item
 
 ```ruby
   def add_item(self):
@@ -174,7 +174,8 @@ Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu
     print(tabulate(df,headers="keys",showindex=False))
 ```
 
-5. Function edit_item
+### Function edit_item
+Terdapat tiga jenis update dalam edit_item, yaitu update nama, jumlah, dan harga barang. Jika tidak ada barang dalam keranjang maka function akan menampilkan error
 
 ```ruby
   def edit_item(self):
@@ -286,6 +287,7 @@ Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu
 ```
 
 9. Function choose_delete
+Function yang dapat membuat user memilih jenis hapus. User dapat menghapus satu barang atau reset semua barang sekaligus. 1 untuk menghapus satu barang dan 2 untuk menghapus semua barang
 
 ```ruby
   def choose_delete(self):
@@ -345,6 +347,7 @@ Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu
 ```
 
 12. Function check_item
+User dapat melihat barang yang dibeli, apakah sudah benar atau terdapat error
 
 ```ruby
   def check_item(self):
