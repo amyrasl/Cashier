@@ -35,22 +35,34 @@ Super Cashier merupakan sistem kasir yang mampu membuat user memesan barang seca
 
  ### Update Item
  1. User diminta untuk memasukkan nama barang yang ingin diubah
- 2. User akan ditanya apakah ingin mengubah nama, harga, atau jumlah barang
- 3. User akan diminta memasukkan nama, harga, atau jumlah barang yang baru
- 
+ 2. Jika nama barang yang dimasukkan tidak ditemukan, sistem akan menampilkan bahwa tidak ada nama tersebut dalam keranjang
+ 3. User akan ditanya apakah ingin mengubah nama, harga, atau jumlah barang
+ 4. User akan diminta memasukkan nama, harga, atau jumlah barang yang baru
+
+![image](https://user-images.githubusercontent.com/65806232/215550134-e1dda44d-4326-4ac7-9dfb-a6d078117e4a.png)
+
 
  ### Delete Item
  1. User ditanya apakah ingin menghapus satu barang atau ingin me-reset seluruh barang pada keranjang
  2. Jika user ingin menghapus satu barang, maka user akan diminta memasukkan nama barang yang ingin dihapus
- 3. Jika user ingin me-reset seluruh barang, maka sistem akan menghapus seluruh transaksi dan menampilkan 'Transaksi berhasil dihapus'
+ 3. Jika user ingin me-reset seluruh barang, maka sistem akan menghapus seluruh transaksi dan menampilkan 'Semua barang berhasil dihapus'
+
+![image](https://user-images.githubusercontent.com/65806232/215550351-30160065-258a-4c06-8ee7-db317c59bd23.png)
+
+![image](https://user-images.githubusercontent.com/65806232/215550425-2be3539b-8200-4060-987f-b9cd6b37bfa0.png)
 
  ### Check Item
  1. Sistem akan mengecek apakah terdapat barang dalam keranjang, jika tidak, sistem akan menampilkan 'Belum ada barang di dalam keranjang'
  2. Jika di dalam keranjang sudah diisi dengan benar, maka akan ditampilkan 'Data sudah diisi dengan benar' dan ditampilkan seluruh barang pada keranjang
 
+![image](https://user-images.githubusercontent.com/65806232/215550544-4c7e65b8-86ab-4b94-ba6a-33c0189ee67d.png)
+
+
  ### Total Price
  1. Sistem akan mengecek apakah terdapat barang dalam keranjang, jika tidak, sistem akan menampilkan 'Belum ada barang di dalam keranjang'
  2. Sistem akan menampilkan barang yang telah dibeli dengan total biaya yang sudah dikalkulasikan dengan diskon
+
+![image](https://user-images.githubusercontent.com/65806232/215550656-ddef08b1-18fc-4e2f-80e3-5a5f7932381e.png)
 
 
 ## Demonstrasi Code
