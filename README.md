@@ -39,7 +39,8 @@ class Transaction:
 ```
 
 ### Constructor init
-User diminta untuk memasukkan ID dalam bentuk integer, jika bukan, maka sistem akan menampilkan 'Format harus dalam bentuk angka!' dan terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu akan terus berulang hingga user keluar dari menu dengan menekan angka 6
+1. User diminta untuk memasukkan ID dalam bentuk integer, jika bukan, maka sistem akan menampilkan 'Format harus dalam bentuk angka!' 
+2. terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu akan terus berulang hingga user keluar dari menu dengan menekan angka 6
 
 ```ruby
   def __init__(self):
@@ -136,12 +137,12 @@ User diminta untuk memasukkan ID dalam bentuk integer, jika bukan, maka sistem a
  2. Jika nama barang yang dimasukkan tidak ditemukan, sistem akan menampilkan bahwa tidak ada nama tersebut dalam keranjang
  3. User akan ditanya apakah ingin mengubah nama, harga, atau jumlah barang
  4. User akan diminta memasukkan nama, harga, atau jumlah barang yang baru
-Terdapat tiga jenis update dalam edit_item, yaitu update nama, jumlah, dan harga barang. Jika tidak ada barang dalam keranjang maka function akan menampilkan error
 
 ```ruby
   def edit_item(self):
     """
     Fungsi untuk meng-update barang yang ada di dalam keranjang.
+
     Attributes:
       menu_update (string): Input untuk memilih melanjutkan penambahan barang atau tidak
       name (string): Input untuk nama barang
@@ -151,7 +152,69 @@ Terdapat tiga jenis update dalam edit_item, yaitu update nama, jumlah, dan harga
       change (string): nama barang yang akan diubah
       idx (int): index list di dalam dictionary item 
     """
-    
+    def update_item_name(change,idx):
+      """
+      Fungsi untuk meng-update nama barang dan menampilkan barang yang telah diubah
+
+      Parameter:
+        change (string): nama barang yang akan diubah
+        idx (int): index list di dalam dictionary item  
+
+      Attributes:
+        change_name (string): nama barang setelah diubah
+      """
+      change_name = input('Masukkan nama barang yang baru: ')
+      self.item_dict['Name'][idx] = change_name
+      df = pd.DataFrame(self.item_dict)
+      print(f'Nama barang berhasil diubah!\n{tabulate(df,headers="keys",showindex=False)}')
+
+    def update_item_qty(change,idx):
+      """
+        Fungsi untuk meng-update jumlah barang dan menampilkan barang yang telah diubah
+
+        Parameter:
+          change (string): nama barang yang akan diubah
+          idx (int): index list di dalam dictionary item  
+
+        Attributes:
+          change_quantity (int): jumlah barang setelah diubah
+      """
+      while True:
+        try:
+          change_quantity = int(input('Masukkan jumlah barang yang baru: '))
+          self.item_dict['Quantity'][idx] = change_quantity
+          self.item_dict['Total'][idx] = self.item_dict['Quantity'][idx]*self.item_dict['Price'][idx]
+          
+          df = pd.DataFrame(self.item_dict)
+          print(f'Jumlah barang berhasil diubah!\n{tabulate(df,headers="keys",showindex=False)}')
+          break
+        except ValueError:
+          print("Masukkan dalam bentuk angka!")
+
+    def update_item_price(change,idx):
+      """
+        Fungsi untuk meng-update harga barang dan menampilkan barang yang telah diubah
+
+        Parameter:
+          change (string): nama barang yang akan diubah
+          idx (int): index list di dalam dictionary item  
+
+        Attributes:
+          change_price (int): jumlah barang setelah diubah
+      """
+      while True:
+        try:
+          change_price = int(input('Masukkan harga barang yang baru: '))
+          self.item_dict['Price'][idx] = change_price
+          self.item_dict['Total'][idx] = self.item_dict['Quantity'][idx]*self.item_dict['Price'][idx]
+          
+          df = pd.DataFrame(self.item_dict)
+          print(f'Harga barang berhasil diubah!\n{tabulate(df,headers="keys",showindex=False)}')
+          break
+          
+        except ValueError:
+          print("Masukkan dalam bentuk angka!") 
+
     if (all(map(lambda x: x == [], self.item_dict.values()))):
       print("\nBelum ada barang dalam keranjang!")
     else:
@@ -175,81 +238,9 @@ Terdapat tiga jenis update dalam edit_item, yaitu update nama, jumlah, dan harga
           print("Tidak ada barang dalam keranjang!\n")
 ```
 
-6. Function update_item_name
-
-```ruby
-    def update_item_name(change,idx):
-      """
-      Fungsi untuk meng-update nama barang dan menampilkan barang yang telah diubah
-      Parameter:
-        change (string): nama barang yang akan diubah
-        idx (int): index list di dalam dictionary item  
-      Attributes:
-        change_name (string): nama barang setelah diubah
-      """
-      
-      change_name = input('Masukkan nama barang yang baru: ')
-      self.item_dict['Name'][idx] = change_name
-      df = pd.DataFrame(self.item_dict)
-      print(f'Nama barang berhasil diubah!\n{tabulate(df,headers="keys",showindex=False)}')
-```
-
-7. Function update_item_qty
-
-```ruby
-    def update_item_qty(change,idx):
-      """
-        Fungsi untuk meng-update jumlah barang dan menampilkan barang yang telah diubah
-        Parameter:
-          change (string): nama barang yang akan diubah
-          idx (int): index list di dalam dictionary item  
-        Attributes:
-          change_quantity (int): jumlah barang setelah diubah
-      """
-      
-      while True:
-        try:
-          change_quantity = int(input('Masukkan jumlah barang yang baru: '))
-          self.item_dict['Quantity'][idx] = change_quantity
-          self.item_dict['Total'][idx] = self.item_dict['Quantity'][idx]*self.item_dict['Price'][idx]
-          
-          df = pd.DataFrame(self.item_dict)
-          print(f'Jumlah barang berhasil diubah!\n{tabulate(df,headers="keys",showindex=False)}')
-          break
-        except ValueError:
-          print("Masukkan dalam bentuk angka!")
-```
-
-8. Function update_item_price
-
-```ruby
-    def update_item_price(change,idx):
-      """
-        Fungsi untuk meng-update harga barang dan menampilkan barang yang telah diubah
-        Parameter:
-          change (string): nama barang yang akan diubah
-          idx (int): index list di dalam dictionary item  
-        Attributes:
-          change_price (int): jumlah barang setelah diubah
-      """
-      
-      while True:
-        try:
-          change_price = int(input('Masukkan harga barang yang baru: '))
-          self.item_dict['Price'][idx] = change_price
-          self.item_dict['Total'][idx] = self.item_dict['Quantity'][idx]*self.item_dict['Price'][idx]
-          
-          df = pd.DataFrame(self.item_dict)
-          print(f'Harga barang berhasil diubah!\n{tabulate(df,headers="keys",showindex=False)}')
-          break
-          
-        except ValueError:
-          print("Masukkan dalam bentuk angka!") 
-```
-
-9. Function choose_delete
-Function yang dapat membuat user memilih jenis hapus. User dapat menghapus satu barang atau reset semua barang sekaligus. 1 untuk menghapus satu barang dan 2 untuk menghapus semua barang
- 1. User ditanya apakah ingin menghapus satu barang atau ingin me-reset seluruh barang pada keranjang
+### Function choose_delete
+Function yang dapat membuat user memilih jenis hapus. 
+ 1. User dapat menghapus satu barang atau reset semua barang sekaligus. 1 untuk menghapus satu barang dan 2 untuk menghapus semua barang
  2. Jika user ingin menghapus satu barang, maka user akan diminta memasukkan nama barang yang ingin dihapus
  3. Jika user ingin me-reset seluruh barang, maka sistem akan menghapus seluruh transaksi dan menampilkan 'Semua barang berhasil dihapus'
 
@@ -257,10 +248,36 @@ Function yang dapat membuat user memilih jenis hapus. User dapat menghapus satu 
   def choose_delete(self):
     """
     Fungsi untuk menghapus barang yang ada di dalam keranjang.
+
     Attributes:
       menu_delete (string): Input untuk memilih melanjutkan penambahan barang atau tidak
     """
-    
+    def delete_item(self):
+      """
+      Fungsi untuk menghapus satu barang
+
+      Attributes:
+        delete_name (string): Input nama barang yang ingin dihapus
+        idx (int): index list di dalam dictionary item
+      """
+      while True:
+        try:
+          delete_name = input('Masukkan nama barang yang ingin dihapus: ')
+          idx = self.item_dict['Name'].index(delete_name)
+          for key in list(self.item_dict.keys()):
+            del(self.item_dict[key][idx])
+          df = pd.DataFrame(self.item_dict)
+          print(f'Berhasil dihapus!\n {tabulate(df,headers="keys",showindex=False)}')
+          break
+        except ValueError:
+          print("Tidak ada barang dalam keranjang!\n")
+
+    def reset_item(self):
+      """Fungsi untuk menghapus transaksi"""
+
+      self.item_dict.clear()
+      print('Semua barang berhasil dihapus!')
+
     if (all(map(lambda x: x == [], self.item_dict.values()))):
       print("\nBelum ada barang dalam keranjang!")
     else:
@@ -274,46 +291,12 @@ Function yang dapat membuat user memilih jenis hapus. User dapat menghapus satu 
         delete_item(self)
       if(menu_delete == '2'):
         reset_item(self)
+
 ```
-
-10. Function delete_item
-
-```ruby
-    def delete_item(self):
-      """
-      Fungsi untuk menghapus satu barang
-      Attributes:
-        delete_name (string): Input nama barang yang ingin dihapus
-        idx (int): index list di dalam dictionary item
-      """
-      
-      while True:
-        try:
-          delete_name = input('Masukkan nama barang yang ingin dihapus: ')
-          idx = self.item_dict['Name'].index(delete_name)
-          for key in list(self.item_dict.keys()):
-            del(self.item_dict[key][idx])
-          df = pd.DataFrame(self.item_dict)
-          print(f'Berhasil dihapus! {tabulate(df,headers="keys",showindex=False)}')
-          break
-        except ValueError:
-          print("Tidak ada barang dalam keranjang!\n")
-```
-
-11. Function reset_item
-
-```ruby
-    def reset_item(self):
-      """Fungsi untuk menghapus transaksi"""
-
-      self.item_dict.clear()
-      print('Semua barang berhasil dihapus!')
-```
-
-12. Function check_item
-User dapat melihat barang yang dibeli, apakah sudah benar atau terdapat error
- 1. Jika di dalam keranjang sudah diisi dengan benar, maka akan ditampilkan 'Data sudah diisi dengan benar' dan ditampilkan seluruh barang pada keranjang
- 2. Jika tidak ada barang di dalam keranjang, sistem akan menampilkan 'Belum ada barang di dalam keranjang'
+### Function check_item
+1. Function check_item User dapat melihat barang yang dibeli, apakah sudah benar atau terdapat error
+2. Jika di dalam keranjang sudah diisi dengan benar, maka akan ditampilkan 'Data sudah diisi dengan benar' dan ditampilkan seluruh barang pada keranjang
+3. Jika tidak ada barang di dalam keranjang, sistem akan menampilkan 'Belum ada barang di dalam keranjang
 
 ```ruby
   def check_item(self):
@@ -325,10 +308,9 @@ User dapat melihat barang yang dibeli, apakah sudah benar atau terdapat error
       print("\nData telah diisi dengan benar!")
       df = pd.DataFrame(self.item_dict)
       print(tabulate(df,headers="keys",showindex=False))
-
 ```
 
-13. Function total_price
+### Function total_price
  1. Sistem akan mengecek apakah terdapat barang dalam keranjang, jika tidak, sistem akan menampilkan 'Belum ada barang di dalam keranjang'
  2. Sistem akan menampilkan barang yang telah dibeli dengan total biaya yang sudah dikalkulasikan dengan diskon
 
