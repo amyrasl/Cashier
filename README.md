@@ -314,8 +314,7 @@ Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu
       """Fungsi untuk menghapus transaksi"""
 
       self.item_dict.clear()
-      df = pd.DataFrame(self.item_dict)
-      print(f'Berhasil dihapus! {tabulate(df,headers="keys",showindex=False)}')
+      print('Semua barang berhasil dihapus!')
 ```
 
 12. Function check_item
@@ -373,8 +372,13 @@ Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu
 ![image](https://user-images.githubusercontent.com/65806232/215543723-70d1e12d-61ee-4e74-8ccf-e27a2ae23a4a.png)
 
 2. Test Case2: Delete item
+![image](https://user-images.githubusercontent.com/65806232/215545629-71bd382d-7697-4857-a0e2-f7d72ecc8af1.png)
 
+3. Test Case3: Reset item
+![image](https://user-images.githubusercontent.com/65806232/215546239-5e7bf95b-917d-4347-b108-4bd6031bc0cf.png)
 
+4. Test Case4: Total item
+![image](https://user-images.githubusercontent.com/65806232/215546857-4e27ad0e-af9e-46b8-ab9f-c8e35823e536.png)
 
 ## Conclusion
 Program ini dapat memudahkan user dalam memasukkan barang yang ingin dibeli secara mandiri. Meski begitu, Interface program ini masih bisa dikembangkan lebih lanjut agar user lebih mudah dalam mengoperasikannya.
