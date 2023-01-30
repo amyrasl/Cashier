@@ -11,9 +11,9 @@ Super Cashier merupakan sistem kasir yang mampu membuat user memesan barang seca
  - Reset semua barang dalam keranjang
  - Mengecek error dalam keranjang
  - Menampilkan harga total barang dengan diskon
-   a. Jika harga lebih dari 200.000 maka mendapatkan diskon 5%
-   b. Jika harga lebih dari 300.000 maka mendapatkan diskon 8%
-   c. Jika harga lebih dari 500.000 maka mendapatkan diskon 10%
+   - Jika harga lebih dari 200.000 maka mendapatkan diskon 5%
+   - Jika harga lebih dari 300.000 maka mendapatkan diskon 8%
+   - Jika harga lebih dari 500.000 maka mendapatkan diskon 10%
 
 ## Workflow
 
