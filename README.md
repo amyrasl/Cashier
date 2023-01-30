@@ -55,8 +55,8 @@ Super Cashier merupakan sistem kasir yang mampu membuat user memesan barang seca
 ![image](https://user-images.githubusercontent.com/65806232/215550425-2be3539b-8200-4060-987f-b9cd6b37bfa0.png)
 
  ### Check Item
- 1. Sistem akan mengecek apakah terdapat barang dalam keranjang, jika tidak, sistem akan menampilkan 'Belum ada barang di dalam keranjang'
- 2. Jika di dalam keranjang sudah diisi dengan benar, maka akan ditampilkan 'Data sudah diisi dengan benar' dan ditampilkan seluruh barang pada keranjang
+ 1. Jika di dalam keranjang sudah diisi dengan benar, maka akan ditampilkan 'Data sudah diisi dengan benar' dan ditampilkan seluruh barang pada keranjang
+ 2. Jika tidak ada barang di dalam keranjang, sistem akan menampilkan 'Belum ada barang di dalam keranjang'
 
 ![image](https://user-images.githubusercontent.com/65806232/215550544-4c7e65b8-86ab-4b94-ba6a-33c0189ee67d.png)
 
