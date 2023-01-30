@@ -213,7 +213,7 @@ class Transaction:
           for key in list(self.item_dict.keys()):
             del(self.item_dict[key][idx])
           df = pd.DataFrame(self.item_dict)
-          print(f'Berhasil dihapus! {tabulate(df,headers="keys",showindex=False)}')
+          print(f'Berhasil dihapus!\n {tabulate(df,headers="keys",showindex=False)}')
           break
         except ValueError:
           print("Tidak ada barang dalam keranjang!\n")
@@ -223,7 +223,7 @@ class Transaction:
 
       self.item_dict.clear()
       df = pd.DataFrame(self.item_dict)
-      print(f'Berhasil dihapus! {tabulate(df,headers="keys",showindex=False)}')
+      print(f'Berhasil dihapus!\n {tabulate(df,headers="keys",showindex=False)}')
 
     if (all(map(lambda x: x == [], self.item_dict.values()))):
       print("\nBelum ada barang dalam keranjang!")
