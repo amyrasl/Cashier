@@ -300,7 +300,8 @@ Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu
           idx = self.item_dict['Name'].index(delete_name)
           for key in list(self.item_dict.keys()):
             del(self.item_dict[key][idx])
-          print(f"Berhasil dihapus! {self.item_dict}")
+          df = pd.DataFrame(self.item_dict)
+          print(f'Berhasil dihapus! {tabulate(df,headers="keys",showindex=False)}')
           break
         except ValueError:
           print("Tidak ada barang dalam keranjang!\n")
@@ -313,21 +314,8 @@ Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu
       """Fungsi untuk menghapus transaksi"""
 
       self.item_dict.clear()
-      print(f"Transaksi berhasil dihapus! {self.item_dict}")
-
-    if (all(map(lambda x: x == [], self.item_dict.values()))):
-      print("\nBelum ada barang dalam keranjang!")
-    else:
-      print('============================================')
-      print('===============HAPUS TRANSAKSI==============')
-      print('============================================')
-      print('1. Hapus satu barang')
-      print('2. Hapus semua barang')
-      menu_delete = input('Masukkan angka menu: ')
-      if(menu_delete == '1'):
-        delete_item(self)
-      if(menu_delete == '2'):
-        reset_item(self)
+      df = pd.DataFrame(self.item_dict)
+      print(f'Berhasil dihapus! {tabulate(df,headers="keys",showindex=False)}')
 ```
 
 12. Function check_item
@@ -379,6 +367,13 @@ Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu
 
       print(f"Total biaya yang perlu dibayar adalah Rp.{int(total_harga_diskon)}")
 ```
+
+##Test Case
+1. Test Case1: Penambahan barang
+![image](https://user-images.githubusercontent.com/65806232/215543723-70d1e12d-61ee-4e74-8ccf-e27a2ae23a4a.png)
+
+2. Test Case2: Delete item
+
 
 
 ## Conclusion
