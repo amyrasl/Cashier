@@ -44,7 +44,7 @@ Super Cashier merupakan sistem kasir yang mampu membuat user memesan barang seca
 ## Demonstrasi Code
 1. Script Main.py
 
-```
+```ruby
 import transaction
 
 trnsct_123 = transaction.Transaction()
