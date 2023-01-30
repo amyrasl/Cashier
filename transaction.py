@@ -12,8 +12,9 @@ class Transaction:
 
     Attributes:
       id_transaction (int): Input ID Transaksi
-      menu (string): Input menu transaksi
+      menu (string): Input menu transaksi  
     """
+    
     while True:
       try:
         id_transaction = int(input('Masukkan ID Transaksi: '))
@@ -56,8 +57,7 @@ class Transaction:
       quantity (int): input untuk jumlah barang
       total_price (int): total harga barang
     """
-
-
+    
     menu_add = ''
     while(menu_add!='y'):
       print("\n\n========PENAMBAHAN BARANG========")
@@ -103,6 +103,7 @@ class Transaction:
       change (string): nama barang yang akan diubah
       idx (int): index list di dalam dictionary item 
     """
+    
     def update_item_name(change,idx):
       """
       Fungsi untuk meng-update nama barang dan menampilkan barang yang telah diubah
@@ -114,6 +115,7 @@ class Transaction:
       Attributes:
         change_name (string): nama barang setelah diubah
       """
+      
       change_name = input('Masukkan nama barang yang baru: ')
       self.item_dict['Name'][idx] = change_name
       print(f'Nama barang berhasil diubah! {self.item_dict} \n\n')
@@ -129,6 +131,7 @@ class Transaction:
         Attributes:
           change_quantity (int): jumlah barang setelah diubah
       """
+      
       while True:
         try:
           change_quantity = int(input('Masukkan jumlah barang yang baru: '))
@@ -151,6 +154,7 @@ class Transaction:
         Attributes:
           change_price (int): jumlah barang setelah diubah
       """
+      
       while True:
         try:
           change_price = int(input('Masukkan harga barang yang baru: '))
@@ -192,6 +196,7 @@ class Transaction:
     Attributes:
       menu_delete (string): Input untuk memilih melanjutkan penambahan barang atau tidak
     """
+    
     def delete_item(self):
       """
       Fungsi untuk menghapus satu barang
@@ -200,6 +205,7 @@ class Transaction:
         delete_name (string): Input nama barang yang ingin dihapus
         idx (int): index list di dalam dictionary item
       """
+      
       while True:
         try:
           delete_name = input('Masukkan nama barang yang ingin dihapus: ')
@@ -233,6 +239,7 @@ class Transaction:
 
   def check_item(self):
     """Check barang apakah terdapat error"""
+    
     if(all(map(lambda x: x == [], self.item_dict.values()))):
       print("\bBelum ada barang di keranjang!")
     else:
@@ -247,6 +254,7 @@ class Transaction:
     Attributes:
       total_harga_diskon = total harga yang diakumulasikan dengan diskon
     """
+    
     if (all(map(lambda x: x == [], self.item_dict.values()))):
       print("\nBelum ada barang dalam keranjang!")
     else:
