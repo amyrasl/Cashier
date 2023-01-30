@@ -152,41 +152,233 @@ Terdapat menu yang dapat user pilih sebagai opsi memesan barang. Pertanyaan menu
 
 5. Function edit_item
 
-![image](https://user-images.githubusercontent.com/65806232/215538456-5b2dace0-2be0-491f-98a6-d39a5dbf9e60.png)
-![image](https://user-images.githubusercontent.com/65806232/215538559-9abee20e-46b6-42c4-8b24-bb5b119719f0.png)
+```ruby
+  def edit_item(self):
+    """
+    Fungsi untuk meng-update barang yang ada di dalam keranjang.
+    Attributes:
+      menu_update (string): Input untuk memilih melanjutkan penambahan barang atau tidak
+      name (string): Input untuk nama barang
+      price (int): Input untuk harga barang
+      quantity (int): input untuk jumlah barang
+      total_price (int): total harga barang
+      change (string): nama barang yang akan diubah
+      idx (int): index list di dalam dictionary item 
+    """
+    
+    if (all(map(lambda x: x == [], self.item_dict.values()))):
+      print("\nBelum ada barang dalam keranjang!")
+    else:
+      while True:
+        print('\n========================================================')
+        print('======================= UPDATE =========================')
+        print('========================================================')
+        try:
+          change = input('Masukkan barang yang ingin diubah: ')
+          idx = self.item_dict['Name'].index(change)
+          print('1. Update nama barang\n2. Update kuantitas barang\n3. Update harga barang')
+          menu_update = input('Masukkan angka menu: ')
+          if(menu_update == '1'):
+            update_item_name(change,idx)
+          if(menu_update == '2'):
+            update_item_qty(change,idx)
+          if(menu_update == '3'):
+            update_item_price(change,idx)
+          break
+        except ValueError:
+          print("Tidak ada barang dalam keranjang!\n")
+```
 
 6. Function update_item_name
 
-![image](https://user-images.githubusercontent.com/65806232/215538690-2fa3b72f-338b-4eb7-b465-37c9366c6009.png)
+```ruby
+    def update_item_name(change,idx):
+      """
+      Fungsi untuk meng-update nama barang dan menampilkan barang yang telah diubah
+      Parameter:
+        change (string): nama barang yang akan diubah
+        idx (int): index list di dalam dictionary item  
+      Attributes:
+        change_name (string): nama barang setelah diubah
+      """
+      
+      change_name = input('Masukkan nama barang yang baru: ')
+      self.item_dict['Name'][idx] = change_name
+      print(f'Nama barang berhasil diubah! {self.item_dict} \n\n')
+```
 
 7. Function update_item_qty
 
-![image](https://user-images.githubusercontent.com/65806232/215538801-f9a10940-fcae-41e7-841e-9f6322a1cf63.png)
+```ruby
+    def update_item_qty(change,idx):
+      """
+        Fungsi untuk meng-update jumlah barang dan menampilkan barang yang telah diubah
+        Parameter:
+          change (string): nama barang yang akan diubah
+          idx (int): index list di dalam dictionary item  
+        Attributes:
+          change_quantity (int): jumlah barang setelah diubah
+      """
+      
+      while True:
+        try:
+          change_quantity = int(input('Masukkan jumlah barang yang baru: '))
+          self.item_dict['Quantity'][idx] = change_quantity
+          self.item_dict['Total'][idx] = self.item_dict['Quantity'][idx]*self.item_dict['Price'][idx]
+          
+          print(f'Jumlah barang berhasil diubah! {self.item_dict} \n\n')
+          break
+        except ValueError:
+          print("Masukkan dalam bentuk angka!")
+```
 
 8. Function update_item_price
 
-![image](https://user-images.githubusercontent.com/65806232/215538890-35eadf2c-4a7b-4d7e-8d12-7b173dc98361.png)
+```ruby
+    def update_item_price(change,idx):
+      """
+        Fungsi untuk meng-update harga barang dan menampilkan barang yang telah diubah
+        Parameter:
+          change (string): nama barang yang akan diubah
+          idx (int): index list di dalam dictionary item  
+        Attributes:
+          change_price (int): jumlah barang setelah diubah
+      """
+      
+      while True:
+        try:
+          change_price = int(input('Masukkan harga barang yang baru: '))
+          self.item_dict['Price'][idx] = change_price
+          self.item_dict['Total'][idx] = self.item_dict['Quantity'][idx]*self.item_dict['Price'][idx]
+          
+          print(f'Harga barang berhasil diubah! {self.item_dict} \n\n')
+          break
+          
+        except ValueError:
+          print("Masukkan dalam bentuk angka!") 
+```
 
 9. Function choose_delete
 
-![image](https://user-images.githubusercontent.com/65806232/215539164-72b8982a-4577-4239-a5f9-57587c65191d.png)
-![image](https://user-images.githubusercontent.com/65806232/215539193-3ef5a178-56d7-4e9a-a136-92ff88e77970.png)
+```ruby
+  def choose_delete(self):
+    """
+    Fungsi untuk menghapus barang yang ada di dalam keranjang.
+    Attributes:
+      menu_delete (string): Input untuk memilih melanjutkan penambahan barang atau tidak
+    """
+    
+    if (all(map(lambda x: x == [], self.item_dict.values()))):
+      print("\nBelum ada barang dalam keranjang!")
+    else:
+      print('============================================')
+      print('===============HAPUS TRANSAKSI==============')
+      print('============================================')
+      print('1. Hapus satu barang')
+      print('2. Hapus semua barang')
+      menu_delete = input('Masukkan angka menu: ')
+      if(menu_delete == '1'):
+        delete_item(self)
+      if(menu_delete == '2'):
+        reset_item(self)
+```
 
 10. Function delete_item
 
-![image](https://user-images.githubusercontent.com/65806232/215539249-4c9856f2-c43a-4b64-bd8c-6acf00c94170.png)
+```ruby
+    def delete_item(self):
+      """
+      Fungsi untuk menghapus satu barang
+      Attributes:
+        delete_name (string): Input nama barang yang ingin dihapus
+        idx (int): index list di dalam dictionary item
+      """
+      
+      while True:
+        try:
+          delete_name = input('Masukkan nama barang yang ingin dihapus: ')
+          idx = self.item_dict['Name'].index(delete_name)
+          for key in list(self.item_dict.keys()):
+            del(self.item_dict[key][idx])
+          print(f"Berhasil dihapus! {self.item_dict}")
+          break
+        except ValueError:
+          print("Tidak ada barang dalam keranjang!\n")
+```
 
 11. Function reset_item
 
-![image](https://user-images.githubusercontent.com/65806232/215539294-e4c7f3a1-6ff0-46da-bc3f-9c66c061f595.png)
+```ruby
+    def reset_item(self):
+      """Fungsi untuk menghapus transaksi"""
+
+      self.item_dict.clear()
+      print(f"Transaksi berhasil dihapus! {self.item_dict}")
+
+    if (all(map(lambda x: x == [], self.item_dict.values()))):
+      print("\nBelum ada barang dalam keranjang!")
+    else:
+      print('============================================')
+      print('===============HAPUS TRANSAKSI==============')
+      print('============================================')
+      print('1. Hapus satu barang')
+      print('2. Hapus semua barang')
+      menu_delete = input('Masukkan angka menu: ')
+      if(menu_delete == '1'):
+        delete_item(self)
+      if(menu_delete == '2'):
+        reset_item(self)
+```
 
 12. Function check_item
 
-![image](https://user-images.githubusercontent.com/65806232/215539363-5439dc20-0f03-4a1d-ac7e-5c17421f72fd.png)
+```ruby
+  def check_item(self):
+    """Check barang apakah terdapat error"""
+    
+    if(all(map(lambda x: x == [], self.item_dict.values()))):
+      print("\bBelum ada barang di keranjang!")
+    else:
+      print("\nData telah diisi dengan benar!")
+      df = pd.DataFrame(self.item_dict)
+      print(tabulate(df,headers="keys",showindex=False))
+
+```
 
 13. Function total_price
 
-![image](https://user-images.githubusercontent.com/65806232/215539418-0422b01e-a0f8-4c7c-94e0-21a2b51a268d.png)
+```ruby
+  def total_price(self):
+    """
+    Menampilkan total harga yang perlu dibayar setelah diakumulasikan dengan diskon
+    
+    Attributes:
+      total_harga_diskon = total harga yang diakumulasikan dengan diskon
+    """
+    
+    if (all(map(lambda x: x == [], self.item_dict.values()))):
+      print("\nBelum ada barang dalam keranjang!")
+    else:
+      print("\n\n===== Berikut barang yang akan dibeli ======\n")
+      print(tabulate(pd.DataFrame(self.item_dict),headers="keys",showindex=False))
+      print("\n")
+
+      total_harga_diskon = 0
+
+      for value in list(self.item_dict.get('Total')):
+        total_harga_diskon += value
+      if(total_harga_diskon > 500000):
+        print(f"Totalnya ialah Rp.{int(total_harga_diskon)}\nMENDAPATKAN DISKON 10%")
+        total_harga_diskon -= 0.1*total_harga_diskon
+      elif(total_harga_diskon > 300000):
+        print(f"Totalnya ialah Rp.{int(total_harga_diskon)}, MENDAPATKAN DISKON 8%")
+        total_harga_diskon -= 0.08*total_harga_diskon
+      elif(total_harga_diskon > 200000):
+        print(f"Totalnya ialah Rp.{int(total_harga_diskon)}, MENDAPATKAN DISKON 5%")
+        total_harga_diskon -= 0.05*total_harga_diskon
+
+      print(f"Total biaya yang perlu dibayar adalah Rp.{int(total_harga_diskon)}")
+```
 
 
 ## Conclusion
