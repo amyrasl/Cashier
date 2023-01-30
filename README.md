@@ -43,7 +43,7 @@ Super Cashier merupakan sistem kasir yang mampu membuat user memesan barang seca
 
 ## Demonstrasi Code
 1. Script Main.py
-2. 
+
 ![image](https://user-images.githubusercontent.com/65806232/215535184-31d8df37-cc42-42d3-bdc4-79fa96c2d248.png)
 
 2. Script Transaction.py
