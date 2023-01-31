@@ -17,7 +17,7 @@ Super Cashier merupakan sistem kasir yang mampu membuat user memesan barang seca
 
 ## Flowchart
 
-![image](https://user-images.githubusercontent.com/65806232/215563401-7b80a35c-89d7-43e7-91f7-eeb5209e5c82.png)
+![Blank diagram](https://user-images.githubusercontent.com/65806232/215660334-087be1a1-2ff4-4ad2-b624-cf10f89096e1.png)
 
 ## Demonstrasi Code
 ### Script Main.py
