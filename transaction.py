@@ -59,7 +59,7 @@ class Transaction:
     """
     
     menu_add = ''
-    while(menu_add!='y'):
+    while(menu_add!='n'):
       print("\n\n========PENAMBAHAN BARANG========")
       name = input('Masukkan nama :')
       while True:
@@ -83,7 +83,7 @@ class Transaction:
       self.item_dict['Quantity'].append(quantity)
       self.item_dict['Total'].append(total_price)
 
-      menu_add = input("\nApakah Anda ingin mengakhiri penambahan barang? (y/n): ")
+      menu_add = input("\nApakah Anda menambahkan barang lagi? (y/n): ")
       menu_add = menu_add.lower()
 
     print('\n\n=BARANG BERHASIL DIMASUKKAN KE DALAM KERANJANG=\n')
