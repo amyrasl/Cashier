@@ -84,7 +84,7 @@ class Transaction:
 
 ### Function add_item
  1. User diminta untuk memasukkan nama, harga, dan jumlah barang
- 2. User akan ditanya apakah ingin mengakhiri penambahan barang, jika iya maka ketikkan 'y' dan 'n' jika tidak
+ 2. User akan ditanya apakah ingin menambah barang, jika iya maka ketikkan 'y' dan 'n' jika tidak
  3. Akan ditampilkan kalimat 'Barang berhasil dimasukkan ke dalam keranjang
 
 ```ruby
@@ -100,7 +100,7 @@ class Transaction:
     """
     
     menu_add = ''
-    while(menu_add!='y'):
+    while(menu_add!='n'):
       print("\n\n========PENAMBAHAN BARANG========")
       name = input('Masukkan nama :')
       while True:
@@ -124,7 +124,7 @@ class Transaction:
       self.item_dict['Quantity'].append(quantity)
       self.item_dict['Total'].append(total_price)
 
-      menu_add = input("\nApakah Anda ingin mengakhiri penambahan barang? (y/n): ")
+      menu_add = input("\nApakah Anda menambahkan barang lagi? (y/n): ")
       menu_add = menu_add.lower()
 
     print('\n\n=BARANG BERHASIL DIMASUKKAN KE DALAM KERANJANG=\n')
@@ -350,7 +350,7 @@ Function yang dapat membuat user memilih jenis hapus.
 ## Test Case
 1. Test Case1: Penambahan barang
 
-![image](https://user-images.githubusercontent.com/65806232/215543723-70d1e12d-61ee-4e74-8ccf-e27a2ae23a4a.png)
+![image](https://user-images.githubusercontent.com/65806232/215658451-5d92480f-1544-4f4e-a985-0fcc0fc3f8d6.png)
 
 2. Test Case2: Delete item
 
